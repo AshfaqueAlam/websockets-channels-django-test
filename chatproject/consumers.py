@@ -8,7 +8,7 @@ from time import sleep
 class PracticeConsumer(AsyncConsumer):
     async def websocket_connect(self, event):
         # when websocket connects
-        print("connected",event)
+        print("connected========> ",event)
         await self.send({"type": "websocket.accept",
                          })
 
@@ -17,7 +17,7 @@ class PracticeConsumer(AsyncConsumer):
 
     async def websocket_receive(self, event):
         # when messages is received from websocket
-        print("receive",event)
+        print("receive========> ",event)
         sleep(1)
         await self.send({"type": "websocket.send",
                          "text":str(randint(0,100))})
@@ -25,4 +25,4 @@ class PracticeConsumer(AsyncConsumer):
 
     async def websocket_disconnect(self, event):
         # when websocket disconnects
-        print("disconnected", event)
+        print("disconnected========> ", event)
